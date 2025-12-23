@@ -13,7 +13,7 @@ The Random Color Generator is a simple yet powerful tool that:
 
 ## View Project
 
-[Live Demo](#) (GitHub Pages link will be added after deployment)
+[Live Demo](https://random-color-generator-839.pages.dev/)
 
 ## Features
 
