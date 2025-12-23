@@ -39,6 +39,7 @@ const BgColor = () => {
         <Button
           onClick={() => {
             setcolorState("hex");
+            handleSelection();
           }}
           variant="secondary"
           className="px-8 py-4"
@@ -48,6 +49,7 @@ const BgColor = () => {
         <Button
           onClick={() => {
             setcolorState("rgb");
+            handleSelection();
           }}
           variant="secondary"
           className="px-8 py-4"
