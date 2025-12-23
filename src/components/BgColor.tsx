@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 const BgColor = () => {
   const [colorState, setcolorState] = useState<string>("hex");
-  const [color, setColor] = useState<string>("#FFFFF");
+  const [color, setColor] = useState<string>("#000000");
 
   function generateRandomHexColor(): void {
     const randomColorInt = Math.floor(Math.random() * 0xffffff);
@@ -21,17 +21,19 @@ const BgColor = () => {
     return setColor(`rgb(${r}, ${g}, ${b})`);
   }
 
-  function handleSelection(): void {
-    if (colorState === "rgb") {
+  function handleSelection(type?: string): void {
+    const currentType = type || colorState;
+
+    if (currentType === "rgb") {
       generateRandomRgbColor();
-    } else if (colorState === "hex") {
+    } else if (currentType === "hex") {
       generateRandomHexColor();
     }
   }
 
-  useEffect(() => {
-    handleSelection();
-  }, [colorState]);
+  //   useEffect(() => {
+  //     handleSelection();
+  //   }, [colorState]);
 
   return (
     <div>
@@ -39,7 +41,7 @@ const BgColor = () => {
         <Button
           onClick={() => {
             setcolorState("hex");
-            handleSelection();
+            handleSelection("hex");
           }}
           variant="secondary"
           className="px-8 py-4"
@@ -49,14 +51,17 @@ const BgColor = () => {
         <Button
           onClick={() => {
             setcolorState("rgb");
-            handleSelection();
+            handleSelection("rgb");
           }}
           variant="secondary"
           className="px-8 py-4"
         >
           Create RGB Color
         </Button>
-        <Button onClick={handleSelection} className="px-8 py-4">
+        <Button
+          onClick={() => handleSelection(colorState)}
+          className="px-8 py-4"
+        >
           Generate Random Color
         </Button>
       </div>
