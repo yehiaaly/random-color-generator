@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const BgColor = () => {
@@ -30,10 +30,6 @@ const BgColor = () => {
       generateRandomHexColor();
     }
   }
-
-  //   useEffect(() => {
-  //     handleSelection();
-  //   }, [colorState]);
 
   return (
     <div>
